@@ -52,4 +52,8 @@ public class CardGame {
         deckOfCards.sort(Comparator.comparing(Card::getSuit).thenComparing(Card::getValue));
         return deckOfCards;
     }
+    public ArrayList<Card> shuffleDeck(){
+        Collections.shuffle(deckOfCards);
+        return deckOfCards;
+    }
 }
