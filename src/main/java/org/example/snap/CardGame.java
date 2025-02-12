@@ -44,4 +44,8 @@ public class CardGame {
         }
         return deckOfCards.removeFirst();
     }
+    public ArrayList<Card> sortDeckInNumberOrder() {
+        deckOfCards.sort(Comparator.comparing(Card::getValue));
+        return deckOfCards;
+    }
 }
