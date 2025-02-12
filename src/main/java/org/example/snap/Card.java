@@ -5,6 +5,17 @@ public class Card {
     private String symbol;
     private int value;
 
+    public Card(String suit, String symbol){
+        setSuitIfValid(suit);
+        setSymbolIfValid(symbol);
+        this.value = findValueOfSymbol(symbol);
+    }
+    public Card(String suit,int value){
+        setSuitIfValid(suit);
+        this.symbol = findSymbolOfValue(value);
+        setValueIfValid(value);
+    }
+
     public int getValue() {
         return value;
     }
