@@ -36,4 +36,12 @@ public class CardGame {
             System.out.println(card.toString());
         }
     }
+
+    public Card dealCard() {
+        if (deckOfCards.isEmpty()) {
+            System.out.println("No cards left in the deck!");
+            return null;
+        }
+        return deckOfCards.removeFirst();
+    }
 }
