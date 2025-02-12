@@ -76,7 +76,7 @@ public class CardGameTest {
         assertEquals("clubs",cardGame.dealCard().getSuit());
     }
     @Test
-    @DisplayName("sort the deck by value of cards")
+    @DisplayName("shuffle the deck")
     void shuffleDeck_randomCardOrder_returnDeckOfCards(){
         cardGame.shuffleDeck();
         cardGame.getDeck();
