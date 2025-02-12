@@ -102,4 +102,9 @@ public class Card {
             return String.valueOf(value);
         }
     }
+
+    @Override
+    public String toString(){
+        return "The " + getSymbol() + " of " + getSuit();
+    }
 }
