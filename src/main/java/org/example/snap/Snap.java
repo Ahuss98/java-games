@@ -122,4 +122,16 @@ public class Snap extends CardGame{
             isGameOver = true;
         }
     }
+    public void playAgain(String name1,String name2){
+        System.out.println("type 'play' to play again");
+        String input = scanner.nextLine();
+        if(input.equals("play")){
+            populateDeck();
+            shuffleDeck();
+            playSnap(name1,name2);
+        } else {
+            System.out.println("Thanks for playing");
+            isGameOver = true;
+        }
+    }
 }
