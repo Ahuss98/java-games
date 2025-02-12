@@ -40,6 +40,43 @@ public class Snap extends CardGame{
             winChecker(newCard, name);
         }
     }
+
+    public void playSnap(String player1, String player2){
+        String currentPlayer = player1;
+        Card player1Card;
+        Card player2Card;
+        System.out.println("🔥 Welcome to Snap! Press ENTER to draw a card. Type 'exit' to quit.");
+
+        while(!isGameOver){
+            System.out.println("press enter to draw a new card");
+            String input = scanner.nextLine();
+
+            if(input.equals("exit")){
+                System.out.println("Thanks for playing");
+                break;
+            }
+
+            if (currentPlayer.equals(player1)){
+                player1Card = dealCard();
+                System.out.println(player1 + "'s card is " + player1Card.toString());
+
+                noMoreCardsChecker(player1Card);
+                winChecker(player1Card, player1);
+
+                currentPlayer = player2;
+            } else {
+                player2Card = dealCard();
+                System.out.println(player2+ "'s card is " + player2Card.toString());
+
+                noMoreCardsChecker(player2Card);
+                winChecker(player2Card, player2);
+
+                currentPlayer = player1;
+            }
+
+        }
+
+    }
     public void winChecker(Card newCard,String name){
         if(!isFirstCard){
             if(newCard != null && lastCard.getSymbol().equals(newCard.getSymbol())){
