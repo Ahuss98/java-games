@@ -57,4 +57,22 @@ public class CardGameTest {
         cardGame.dealCard();
         assertEquals(4,cardGame.dealCard().getValue());
     }
+    @Test
+    @DisplayName("sort the deck by value of cards and suit")
+    void sortDeckIntoSuits_sortEveryCardBySuitThenValue_returnDeckOfCards(){
+        cardGame.sortDeckIntoSuits();
+        cardGame.getDeck();
+        assertEquals(2,cardGame.dealCard().getValue());
+        assertEquals("clubs",cardGame.dealCard().getSuit());
+        cardGame.dealCard();
+        cardGame.dealCard();
+        cardGame.dealCard();
+        assertEquals(7,cardGame.dealCard().getValue());
+        assertEquals("clubs",cardGame.dealCard().getSuit());
+        cardGame.dealCard();
+        cardGame.dealCard();
+        cardGame.dealCard();
+        assertEquals(12,cardGame.dealCard().getValue());
+        assertEquals("clubs",cardGame.dealCard().getSuit());
+    }
 }
