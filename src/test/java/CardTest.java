@@ -88,7 +88,7 @@ public class CardTest {
     @Test
     @DisplayName("Test describeClass outputs expected string")
     void describeClass_DisplaysCorrectInformation() {
-        suitSymbolCard.toString();
-        suitValueCard.toString();
+        System.out.println(suitSymbolCard.toString());
+        System.out.println(suitValueCard.toString());
     }
 }

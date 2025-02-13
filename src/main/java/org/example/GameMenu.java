@@ -1,4 +1,7 @@
-package org.example.snap;
+package org.example;
+import org.example.snap.Player;
+import org.example.snap.Snap;
+
 import java.util.Scanner;
 
 public class GameMenu {
@@ -28,8 +31,13 @@ public class GameMenu {
             scanner.nextLine();
             System.out.println("Please enter your name");
              player.setName(scanner.nextLine());
-            newGame = new Snap(player);
-            newGame.playSnap(player);
+
+            System.out.println("what game would you like to play? \n1. Snap \n2.Hangman");
+            int selected = scanner.nextInt();
+            if(selected == 1){
+                newGame = new Snap(player);
+                newGame.playSnap(player);
+            }
         } else {
             Player player1 = new Player();
             Player player2 = new Player();
@@ -39,8 +47,12 @@ public class GameMenu {
             System.out.println("Please enter the name of the second Player2");
             player2.setName(scanner.nextLine());
 
+            System.out.println("what game would you like to play? \n1. Snap \n2.Hangman");
+            int selected = scanner.nextInt();
+            if(selected == 1){
             newGame = new Snap(player1,player2);
             newGame.playSnap(player1,player2);
+            }
         }
     }
 }
