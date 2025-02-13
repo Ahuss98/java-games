@@ -18,7 +18,7 @@ public class HangmanMenu {
 
     public void playGame(){
         while(incorrectGuesses< currentWord.length() || correctGuesses < currentWord.length()){
-            newHangman.displayWordLength(incorrectGuesses);
+            newHangman.displayWordLength();
             System.out.println("guess a letter");
             String input = scanner.nextLine();
             if(newHangman.guessLetterCheck(input)){
@@ -28,7 +28,7 @@ public class HangmanMenu {
                 System.out.println("incorrect!");
                 incorrectGuesses++;
             }
-            newHangman.displayWordLength(incorrectGuesses);
+            newHangman.displayWordLength();
         }
     }
 
