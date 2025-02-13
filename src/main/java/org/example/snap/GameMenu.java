@@ -6,6 +6,7 @@ public class GameMenu {
     Scanner scanner = new Scanner(System.in);
     Snap newGame ;
 
+
     public GameMenu(){
         setNumbOfPlayers();
         startGameWithPlayers(numbOfPlayers);
@@ -23,17 +24,20 @@ public class GameMenu {
 
     public void startGameWithPlayers(int numbOfPlayers){
         if(numbOfPlayers == 1){
+            Player player = new Player();
             scanner.nextLine();
             System.out.println("Please enter your name");
-            String name = scanner.nextLine();
-            newGame = new Snap(name);
-            newGame.playSnap(name);
+             player.setName(scanner.nextLine());
+            newGame = new Snap(player);
+            newGame.playSnap(player);
         } else {
+            Player player1 = new Player();
+            Player player2 = new Player();
             scanner.nextLine();
             System.out.println("Please enter the name of Player1");
-            String player1 = scanner.nextLine();
+            player1.setName(scanner.nextLine());
             System.out.println("Please enter the name of the second Player2");
-            String player2 = scanner.nextLine();
+            player2.setName(scanner.nextLine());
 
             newGame = new Snap(player1,player2);
             newGame.playSnap(player1,player2);

@@ -5,19 +5,19 @@ import java.util.Comparator;
 public class CardGame {
 
     public ArrayList<Card> deckOfCards;
-    public String name;
-    public String name2;
+    Player player1 = new Player();
+    Player player2 = new Player();
 
     public CardGame(String name){
-        this.name = name;
+        player1.setName(name);
         this.deckOfCards = new ArrayList<>();
         populateDeck();
 
     }
 
     public CardGame(String name, String name2){
-        this.name = name;
-        this.name2 = name2;
+        player1.setName(name);
+        player2.setName(name2);
         this.deckOfCards = new ArrayList<>();
         populateDeck();
     }

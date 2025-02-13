@@ -6,23 +6,28 @@ public class Snap extends CardGame{
     private boolean isGameOver;
     Scanner scanner ;
     boolean isFirstCard = true;
+    Player player1;
+    Player player2;
 
-    public Snap(String name) {
-        super(name);
+    public Snap(Player player) {
+        super(player.getName());
+        this.player1 = player;
         isGameOver = false;
         scanner = new Scanner(System.in);
         populateDeck();
         shuffleDeck();
     }
 
-    public Snap(String name1 , String name2){
-        super(name1,name2);
+    public Snap(Player player1 , Player player2){
+        super(player1.getName(), player2.getName());
+        this.player1 = player1;
+        this.player2 = player2;
         isGameOver = false;
         scanner = new Scanner(System.in);
         populateDeck();
         shuffleDeck();
     }
-    public void playSnap(String name){
+    public void playSnap(Player player){
         System.out.println("🔥 Welcome to Snap! Press ENTER to draw a card. Type 'exit' to quit.");
 
         while(!isGameOver){
@@ -37,12 +42,12 @@ public class Snap extends CardGame{
             System.out.println(newCard.toString());
 
             noMoreCardsChecker(newCard);
-            winChecker(newCard, name);
+            winChecker(newCard, player);
         }
     }
 
-    public void playSnap(String player1, String player2){
-        String currentPlayer = player1;
+    public void playSnap(Player player1, Player player2){
+        String currentPlayer = player1.getName();
         Card player1Card;
         Card player2Card;
         System.out.println("🔥 Welcome to Snap! Press ENTER to draw a card. Type 'exit' to quit.");
@@ -56,37 +61,37 @@ public class Snap extends CardGame{
                 break;
             }
 
-            if (currentPlayer.equals(player1)){
+            if (currentPlayer.equals(player1.getName())){
                 player1Card = dealCard();
-                System.out.println(player1 + "'s card is " + player1Card.toString());
+                System.out.println(player1.getName() + "'s card is " + player1Card.toString());
 
                 noMoreCardsChecker(player1Card);
                 winChecker(player1Card, player1);
 
-                currentPlayer = player2;
+                currentPlayer = player2.getName();
             } else {
                 player2Card = dealCard();
-                System.out.println(player2+ "'s card is " + player2Card.toString());
+                System.out.println(player2.getName() + "'s card is " + player2Card.toString());
 
                 noMoreCardsChecker(player2Card);
                 winChecker(player2Card, player2);
 
-                currentPlayer = player1;
+                currentPlayer = player1.getName();
             }
 
         }
 
     }
-    public void winChecker(Card newCard,String name){
+    public void winChecker(Card newCard,Player player){
         if(!isFirstCard){
             if(newCard != null && lastCard.getSymbol().equals(newCard.getSymbol())){
                 long startTime = System.currentTimeMillis();
                 while ((System.currentTimeMillis() - startTime) < 2000) {
-                    System.out.println( name + " type 'snap' as fast as you can");
+                    System.out.println( player.getName() + " type 'snap' as fast as you can");
                     String input = scanner.nextLine().trim();
                     if (input.equalsIgnoreCase("snap") && (System.currentTimeMillis() - startTime) < 2000) {
-                        System.out.println("🎉 SNAP!!! " + name + " WINS!");
-                        playAgain();
+                        System.out.println("🎉 SNAP!!! " + player.getName() + " WINS!");
+                        playAgain(player1,player2);
                         return;
                     } else if ((System.currentTimeMillis() - startTime) < 2000){
                         System.out.println("❌ Wrong input! Try again.");
@@ -116,19 +121,19 @@ public class Snap extends CardGame{
         if(input.equals("play")){
             populateDeck();
             shuffleDeck();
-            playSnap(name);
+            playSnap(player1);
         } else {
             System.out.println("Thanks for playing");
             isGameOver = true;
         }
     }
-    public void playAgain(String name1,String name2){
+    public void playAgain(Player player1,Player player2){
         System.out.println("type 'play' to play again");
         String input = scanner.nextLine();
         if(input.equals("play")){
             populateDeck();
             shuffleDeck();
-            playSnap(name1,name2);
+            playSnap(player1,player2);
         } else {
             System.out.println("Thanks for playing");
             isGameOver = true;
