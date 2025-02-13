@@ -1,5 +1,6 @@
 package org.example;
 import org.example.hangman.DisplayGuess;
+import org.example.hangman.HangmanMenu;
 import org.example.snap.Player;
 import org.example.snap.Snap;
 
@@ -48,14 +49,13 @@ public class GameMenu {
             System.out.println("Please enter the name of the second Player2");
             player2.setName(scanner.nextLine());
 
-            System.out.println("what game would you like to play? \n1. Snap \n2.Hangman");
+            System.out.println("what game would you like to play? \n1.Snap \n2.Hangman");
             int selected = scanner.nextInt();
             if(selected == 1){
             newGame = new Snap(player1,player2);
             newGame.playSnap(player1,player2);
             } else if(selected ==2){
-                DisplayGuess newHangman = new DisplayGuess();
-                newHangman.displayWordLength();
+                HangmanMenu newGame = new HangmanMenu();
             }
         }
     }
