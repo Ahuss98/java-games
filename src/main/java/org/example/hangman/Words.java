@@ -12,6 +12,5 @@ public class Words {
         Random rand = new Random();
         int randomNum = rand.nextInt(words.size());
         return words.get(randomNum);
-
     }
 }
