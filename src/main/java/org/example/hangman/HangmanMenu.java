@@ -17,11 +17,11 @@ public class HangmanMenu {
     }
 
     public void playGame(){
-        while(incorrectGuesses < 5 || correctGuesses < currentWord.length()){
+        while(incorrectGuesses < 5 && correctGuesses < currentWord.length()){
             newHangman.displayWordLength();
             System.out.println("guess a letter");
-            System.out.println("correct guesses: " +  correctGuesses + "out of: " + currentWord.length());
-            System.out.println("incorrect guesses: " + incorrectGuesses);
+            System.out.println("correct guesses: " +  correctGuesses + " out of: " + currentWord.length());
+            System.out.println("incorrect guesses: " + incorrectGuesses + " out of " + 5 );
             String input = scanner.nextLine();
             if(newHangman.guessLetterCheck(input)){
                 System.out.println("correct!");
@@ -30,8 +30,17 @@ public class HangmanMenu {
                 System.out.println("incorrect!");
                 incorrectGuesses++;
             }
-//            newHangman.displayWordLength();
         }
+        winLosschecker();
+    }
+    public void winLosschecker(){
+        if(correctGuesses >= currentWord.length()){
+            System.out.println("congratulations you win!!");
+        }
+        if(incorrectGuesses >= 5){
+            System.out.println("you lose!!");
+        }
+
     }
 
 }
