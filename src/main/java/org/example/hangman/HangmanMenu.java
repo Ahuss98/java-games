@@ -28,7 +28,7 @@ public class HangmanMenu {
                 System.out.println("incorrect!");
                 incorrectGuesses++;
             }
-            newHangman.displayWordLength();
+//            newHangman.displayWordLength();
         }
     }
 

@@ -1,41 +1,46 @@
 package org.example.hangman;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class DisplayGuess {
     Scanner scanner = new Scanner(System.in);
+    String currentWord;
+    ArrayList<String> correctLetterGuess;
+    ArrayList<String> allGuesses;
+    String[] wordArr;
 
     public String getCurrentWord() {
         return currentWord;
     }
 
-    String currentWord;
-    ArrayList<String> guessedLetter;
-
     public DisplayGuess(String word){
         this.currentWord = word;
-        this.guessedLetter = new ArrayList<>();
+        this.correctLetterGuess = new ArrayList<>();
+        this.allGuesses = new ArrayList<>();
+        wordArr = new String[currentWord.length()];
+        arrayFiller();
+    }
+
+    public void arrayFiller(){
+        Arrays.fill(wordArr, 0, currentWord.length(), "_ ");
     }
 
     public void displayWordLength(){
         System.out.println(currentWord);
-        for(int i = 0; i < currentWord.length(); i++){
-            boolean hasDisplayedCharechter = false;
 
-            if(!hasDisplayedCharechter){
-            for(String letter: guessedLetter){
-                if(String.valueOf(currentWord.charAt(i)).equals(letter)){
-                    System.out.print(letter + " ");
-                    hasDisplayedCharechter = true;
-                }
-            }
-            }
-            if(!hasDisplayedCharechter){
-                System.out.print("_ ");
-                hasDisplayedCharechter = false;
+
+        for (int i = 0; i < currentWord.length(); i++) {
+            String currentLetter = String.valueOf(currentWord.charAt(i));
+
+            if (correctLetterGuess.contains(currentLetter)) {
+                wordArr[i] = currentLetter;
             }
         }
+
+        allGuesses.addAll(correctLetterGuess);
+        System.out.println(Arrays.toString(wordArr));
     }
 
     public void GetNewWord(){
@@ -43,10 +48,14 @@ public class DisplayGuess {
     }
 
     public boolean guessLetterCheck(String guess){
-        if(currentWord.contains(guess)){
-            guessedLetter.add(guess);
+        if(currentWord.contains(guess) && !allGuesses.contains(guess)){
+            correctLetterGuess.add(guess);
+            return currentWord.contains(guess);
+        } else if (!allGuesses.contains(guess)) {
+            allGuesses.add(guess);
             return currentWord.contains(guess);
         }
-        return currentWord.contains(guess);
+        System.out.println("cant guess same letter again");
+        return false;
     }
 }
