@@ -11,18 +11,23 @@ public class HangmanMenu {
     Scanner scanner = new Scanner(System.in);
 
     public HangmanMenu(){
-        currentWord = Words.selectRandomWord();
-        newHangman = new DisplayGuess(currentWord);
         playGame();
     }
 
     public void playGame(){
+        currentWord = Words.selectRandomWord();
+        newHangman = new DisplayGuess(currentWord);
+            System.out.println("🔥 Welcome to Hangman! Press type a letter to guess. Type 'exit' to quit.");
         while(incorrectGuesses < 5 && correctGuesses < currentWord.length()){
             newHangman.displayWordLength();
             System.out.println("guess a letter");
             System.out.println("correct guesses: " +  correctGuesses + " out of: " + currentWord.length());
             System.out.println("incorrect guesses: " + incorrectGuesses + " out of " + 5 );
             String input = scanner.nextLine();
+            if(input.equals("exit")){
+                System.out.println("Thanks for playing");
+                break;
+            }
             if(newHangman.guessLetterCheck(input)){
                 System.out.println("correct!");
                 correctGuesses ++;

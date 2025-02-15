@@ -2,10 +2,8 @@ package org.example.hangman;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class DisplayGuess {
-    Scanner scanner = new Scanner(System.in);
     String currentWord;
     ArrayList<String> correctLetterGuess;
     ArrayList<String> allGuesses;

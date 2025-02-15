@@ -39,6 +39,8 @@ public class GameMenu {
             if(selected == 1){
                 newGame = new Snap(player);
                 newGame.playSnap(player);
+            }else if(selected ==2){
+                HangmanMenu newGame = new HangmanMenu();
             }
         } else {
             Player player1 = new Player();
