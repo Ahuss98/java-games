@@ -30,7 +30,7 @@ public class Card {
     }
 
     public void setSuitIfValid(String suit) {
-        String[] validSuits = {"hearts", "diamonds", "spades", "clubs"};
+        String[] validSuits = {"♥", "♦", "♠", "♣"};
         boolean isValid = false;
 
         for (String validSuit : validSuits) {

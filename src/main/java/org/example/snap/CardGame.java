@@ -23,7 +23,7 @@ public class CardGame {
     }
 
     public void populateDeck(){
-        String[] validSuits = {"hearts","diamonds","spades","clubs"};
+        String[] validSuits = {"♥", "♦", "♠", "♣"};
         for(int i = 0; i <4 ; i++){
             for(int j = 2; j <= 14 ; j++){
                 deckOfCards.add(new Card(validSuits[i], j));

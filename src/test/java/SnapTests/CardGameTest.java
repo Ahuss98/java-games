@@ -28,7 +28,7 @@ public class CardGameTest {
     @Test
     @DisplayName("returns a different card depending on how many time dealCard has been called")
     void dealCard_returnsCorrectCard(){
-        assertEquals("hearts", cardGame.dealCard().getSuit());
+        assertEquals("♥", cardGame.dealCard().getSuit());
         assertEquals(3, cardGame.dealCard().getValue());
         cardGame.dealCard();
         cardGame.dealCard();
@@ -65,17 +65,17 @@ public class CardGameTest {
         cardGame.sortDeckIntoSuits();
         cardGame.getDeck();
         assertEquals(2,cardGame.dealCard().getValue());
-        assertEquals("clubs",cardGame.dealCard().getSuit());
+        assertEquals("♠",cardGame.dealCard().getSuit());
         cardGame.dealCard();
         cardGame.dealCard();
         cardGame.dealCard();
         assertEquals(7,cardGame.dealCard().getValue());
-        assertEquals("clubs",cardGame.dealCard().getSuit());
+        assertEquals("♠",cardGame.dealCard().getSuit());
         cardGame.dealCard();
         cardGame.dealCard();
         cardGame.dealCard();
         assertEquals(12,cardGame.dealCard().getValue());
-        assertEquals("clubs",cardGame.dealCard().getSuit());
+        assertEquals("♠",cardGame.dealCard().getSuit());
     }
     @Test
     @DisplayName("shuffle the deck")
