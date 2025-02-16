@@ -1,7 +1,8 @@
+package HangmanTests;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import org.example.hangman.Words;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

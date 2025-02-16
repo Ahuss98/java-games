@@ -23,17 +23,22 @@ public class HangmanMenu {
             System.out.println("guess a letter");
             System.out.println("correct guesses: " +  correctGuesses + " out of: " + currentWord.length());
             System.out.println("incorrect guesses: " + incorrectGuesses + " out of " + 5 );
-            String input = scanner.nextLine();
+            String input = scanner.nextLine().trim().toLowerCase();
             if(input.equals("exit")){
                 System.out.println("Thanks for playing");
                 break;
             }
+            try{
             if(newHangman.guessLetterCheck(input)){
                 System.out.println("correct!");
                 correctGuesses ++;
             } else {
                 System.out.println("incorrect!");
                 incorrectGuesses++;
+            }
+
+            }catch(IllegalArgumentException e){
+                System.out.println(e.getMessage());
             }
         }
         winLosschecker();

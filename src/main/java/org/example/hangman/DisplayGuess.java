@@ -5,9 +5,9 @@ import java.util.Arrays;
 
 public class DisplayGuess {
     String currentWord;
-    ArrayList<String> correctLetterGuess;
-    ArrayList<String> allGuesses;
-    String[] wordArr;
+    public ArrayList<String> correctLetterGuess;
+    public ArrayList<String> allGuesses;
+    public String[] wordArr;
 
     public String getCurrentWord() {
         return currentWord;
@@ -46,6 +46,9 @@ public class DisplayGuess {
     }
 
     public boolean guessLetterCheck(String guess){
+        if (guess == null || guess.length() != 1 ) {
+            throw new IllegalArgumentException("Invalid guess! Please enter a single letter.");
+        }
         if(currentWord.contains(guess) && !allGuesses.contains(guess)){
             correctLetterGuess.add(guess);
             return currentWord.contains(guess);

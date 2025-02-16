@@ -34,7 +34,7 @@ public class GameMenu {
             System.out.println("Please enter your name");
              player.setName(scanner.nextLine());
 
-            System.out.println("what game would you like to play? \n1. Snap \n2.Hangman");
+            System.out.println("what game would you like to play? \n1.Snap \n2.Hangman");
             int selected = scanner.nextInt();
             if(selected == 1){
                 newGame = new Snap(player);

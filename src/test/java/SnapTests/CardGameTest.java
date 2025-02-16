@@ -1,3 +1,5 @@
+package SnapTests;
+
 import org.example.snap.CardGame;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
