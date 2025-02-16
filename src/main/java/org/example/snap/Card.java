@@ -5,12 +5,13 @@ public class Card {
     private String symbol;
     private int value;
 
-    public Card(String suit, String symbol){
+    public Card(String suit, String symbol) {
         setSuitIfValid(suit);
         setSymbolIfValid(symbol);
         this.value = findValueOfSymbol(symbol);
     }
-    public Card(String suit,int value){
+
+    public Card(String suit, int value) {
         setSuitIfValid(suit);
         this.symbol = findSymbolOfValue(value);
         setValueIfValid(value);
@@ -29,10 +30,10 @@ public class Card {
     }
 
     public void setSuitIfValid(String suit) {
-        String[] validSuits = {"hearts","diamonds","spades","clubs"};
+        String[] validSuits = {"hearts", "diamonds", "spades", "clubs"};
         boolean isValid = false;
 
-        for (String validSuit:validSuits){
+        for (String validSuit : validSuits) {
             if (validSuit.equals(suit)) {
                 this.suit = suit;
                 isValid = true;
@@ -45,9 +46,9 @@ public class Card {
     }
 
     public void setSymbolIfValid(String symbol) {
-        String[] validSymbols = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+        String[] validSymbols = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
         boolean isValid = false;
-        for (String validSymbol:validSymbols){
+        for (String validSymbol : validSymbols) {
             if (validSymbol.equals(symbol)) {
                 isValid = true;
                 this.symbol = symbol;
@@ -61,9 +62,9 @@ public class Card {
     }
 
     public void setValueIfValid(int value) {
-        int[] validValues = {2,3,4,5,6,7,8,9,10,11,12,13,14};
+        int[] validValues = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
         boolean isValid = false;
-        for (int validValue:validValues){
+        for (int validValue : validValues) {
             if (validValue == value) {
                 isValid = true;
                 this.value = value;
@@ -76,8 +77,8 @@ public class Card {
         }
     }
 
-    public int findValueOfSymbol(String symbol){
-        if(symbol.matches("[a-zA-Z]+")){
+    public int findValueOfSymbol(String symbol) {
+        if (symbol.matches("[a-zA-Z]+")) {
             return switch (symbol) {
                 case "J" -> 11;
                 case "Q" -> 12;
@@ -89,8 +90,9 @@ public class Card {
             return Integer.parseInt(symbol);
         }
     }
-    public String findSymbolOfValue(int value){
-        if(value >= 11 && value <= 14){
+
+    public String findSymbolOfValue(int value) {
+        if (value >= 11 && value <= 14) {
             return switch (value) {
                 case 11 -> "J";
                 case 12 -> "Q";
@@ -104,7 +106,7 @@ public class Card {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "The " + getSymbol() + " of " + getSuit();
     }
 }
