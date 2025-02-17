@@ -1,17 +1,19 @@
 package org.example.snap;
 
+import java.util.Objects;
+
 public class Card {
-    private String suit;
+    private Suits suit;
     private String symbol;
     private int value;
 
-    public Card(String suit, String symbol) {
+    public Card(Suits suit, String symbol) {
         setSuitIfValid(suit);
         setSymbolIfValid(symbol);
         this.value = findValueOfSymbol(symbol);
     }
 
-    public Card(String suit, int value) {
+    public Card(Suits suit, int value) {
         setSuitIfValid(suit);
         this.symbol = findSymbolOfValue(value);
         setValueIfValid(value);
@@ -25,16 +27,15 @@ public class Card {
         return symbol;
     }
 
-    public String getSuit() {
+    public Suits getSuit() {
         return suit;
     }
 
-    public void setSuitIfValid(String suit) {
-        String[] validSuits = {"♥", "♦", "♠", "♣"};
+    public void setSuitIfValid(Suits suit) {
         boolean isValid = false;
 
-        for (String validSuit : validSuits) {
-            if (validSuit.equals(suit)) {
+        for (Suits validSuit : Suits.values()) {
+            if (suit.equals(validSuit)) {
                 this.suit = suit;
                 isValid = true;
                 break;
@@ -107,6 +108,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return "The " + getSymbol() + " of " + getSuit();
+        return "The " + getSymbol() + " of " + suit.getSymbol();
     }
 }

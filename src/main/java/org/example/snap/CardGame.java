@@ -23,10 +23,9 @@ public class CardGame {
     }
 
     public void populateDeck(){
-        String[] validSuits = {"♥", "♦", "♠", "♣"};
-        for(int i = 0; i <4 ; i++){
+        for(Suits suit: Suits.values()){
             for(int j = 2; j <= 14 ; j++){
-                deckOfCards.add(new Card(validSuits[i], j));
+                deckOfCards.add(new Card(suit, j));
             }
         }
     }

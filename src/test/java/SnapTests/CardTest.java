@@ -1,6 +1,7 @@
 package SnapTests;
 
 import org.example.snap.Card;
+import org.example.snap.Suits;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,15 +14,15 @@ public class CardTest {
 
     @BeforeEach
     void setup() {
-        suitSymbolCard = new Card("diamonds", "K");
-        suitValueCard = new Card("diamonds", 12);
+        suitSymbolCard = new Card(Suits.DIAMONDS, "K");
+        suitValueCard = new Card(Suits.DIAMONDS, 12);
     }
 
     @Test
     @DisplayName("Test constructor with  suit, symbol")
     void constructor_WithSymbol_InitializesCorrectly() {
         assertAll(
-                () -> assertEquals("diamonds", suitSymbolCard.getSuit()),
+                () -> assertEquals(Suits.DIAMONDS, suitSymbolCard.getSuit()),
                 () -> assertEquals("K", suitSymbolCard.getSymbol()),
                 () -> assertEquals(13, suitSymbolCard.getValue())
         );
@@ -31,7 +32,7 @@ public class CardTest {
     @DisplayName("Test constructor with suit, value")
     void constructor_WithValue_InitializesCorrectly() {
         assertAll(
-                () -> assertEquals("diamonds", suitValueCard.getSuit()),
+                () -> assertEquals(Suits.DIAMONDS, suitValueCard.getSuit()),
                 () -> assertEquals("Q", suitValueCard.getSymbol()),
                 () -> assertEquals(12, suitValueCard.getValue())
         );
