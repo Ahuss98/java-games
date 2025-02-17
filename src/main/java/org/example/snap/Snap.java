@@ -27,13 +27,12 @@ public class Snap extends CardGame{
         scanner = new Scanner(System.in);
         populateDeck();
         shuffleDeck();
-        playSnap(player1,player2);
+        playSnap(this.player1,this.player2);
     }
+
     public void playSnap(Player player1,Player player2){
         System.out.println("🔥 Welcome to Snap! Press ENTER to draw a card. Type 'exit' to quit.");
         String currentPlayer = player1.getName();
-        Card player1Card;
-        Card player2Card;
         while(!isGameOver){
             System.out.println("press enter to draw a new card");
             String input = scanner.nextLine();
@@ -42,28 +41,24 @@ public class Snap extends CardGame{
                 System.out.println("Thanks for playing");
                 break;
             }
-
             if (currentPlayer.equals(player1.getName())){
-                player1Card = dealCard();
-                System.out.println(player1.getName() + "'s card is " + player1Card.toString());
-
-                noMoreCardsChecker(player1Card);
-                winChecker(player1Card, player1);
-
+                playerTurn(player1);
                 if(player2 != null){
                 currentPlayer = player2.getName();
                 }
             } else {
-                player2Card = dealCard();
-                System.out.println(player2.getName() + "'s card is " + player2Card.toString());
-
-                noMoreCardsChecker(player2Card);
-                winChecker(player2Card, player2);
-
+                playerTurn(player2);
                 currentPlayer = player1.getName();
             }
 
         }
+    }
+
+    public void playerTurn(Player player){
+        Card card = dealCard();
+        System.out.println(player.getName() + "'s card is " + card.toString());
+        noMoreCardsChecker(card);
+        winChecker(card, player);
     }
 
     public void winChecker(Card newCard,Player player){
