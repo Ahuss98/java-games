@@ -1,6 +1,7 @@
 package org.example.snap;
 import org.example.GameMenu;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Snap extends CardGame{
@@ -97,23 +98,37 @@ public class Snap extends CardGame{
         }
     }
     public void playAgain(){
-        System.out.println("type \n 1.to play again \n 2.select a new game with same players\n 3.to select players and select game");
+        while(true){
+        System.out.println("Type: \n 1.Play again \n 2.Select a new game with the same players \n 3.Select new players and a new game \n 4.Exit");
+        try {
         int input = scanner.nextInt();
-        if(input == 1){
-            populateDeck();
-            shuffleDeck();
-            playSnap(player1,player2);
-        } else if (input == 2) {
-            if(player2 == null){
-            GameMenu newGameMenu = new GameMenu(1);
+        scanner.nextLine();
+            if (input == 1) {
+                populateDeck();
+                shuffleDeck();
+                playSnap(player1, player2);
+                break;
+            } else if (input == 2) {
+                if (player2 == null) {
+                    GameMenu newGameMenu = new GameMenu(1);
+                } else {
+                    GameMenu newGameMenu = new GameMenu(2);
+                }
+                break;
+            } else if (input == 3) {
+                GameMenu newGameMenu = new GameMenu();
+                break;
+            } else if (input == 4) {
+                System.out.println("Thanks for playing");
+                isGameOver = true;
+                break;
             } else {
-            GameMenu newGameMenu = new GameMenu(2);
+                isGameOver = true;
+                throw new InputMismatchException();
             }
-        } else if (input == 3) {
-            GameMenu newGameMenu = new GameMenu();
-        } else {
-            System.out.println("Thanks for playing");
-            isGameOver = true;
+        } catch (InputMismatchException e){
+            System.out.println("please select a number between 1-4");
+        }
         }
     }
 }
