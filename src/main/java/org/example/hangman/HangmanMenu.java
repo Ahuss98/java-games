@@ -23,6 +23,7 @@ public class HangmanMenu {
             System.out.println("guess a letter");
             System.out.println("correct guesses: " + correctGuesses + " out of: " + currentWord.length());
             System.out.println("incorrect guesses: " + incorrectGuesses + " out of " + 5);
+            displayHangman(incorrectGuesses);
             String input = scanner.nextLine().trim().toLowerCase();
             if (input.equals("exit")) {
                 System.out.println("Thanks for playing");
@@ -49,9 +50,69 @@ public class HangmanMenu {
             System.out.println("congratulations you win!!");
         }
         if (incorrectGuesses >= 5) {
+            displayHangman(incorrectGuesses);
             System.out.println("you lose!!");
         }
 
     }
 
+    public void displayHangman(int stage) {
+        String[] hangmanStages = {
+                """
+                   
+                   
+                   
+                   
+                   
+                   ___|___
+                """,
+                """
+                   
+                   |
+                   |
+                   |
+                   |
+                   |
+                   ___|___
+                """,
+                """
+                   _______
+                   |
+                   |
+                   |
+                   |
+                   |
+                   ___|___
+                """,
+                """
+                   _______
+                   |/     |
+                   |     (_)
+                   |
+                   |
+                   |
+                   ___|___
+                """,
+                """
+                   _______
+                   |/     |
+                   |     (_)
+                   |     \\|/
+                   |      
+                   |
+                   ___|___
+                """,
+                """
+                   _______
+                   |/     |
+                   |     (_)
+                   |     \\|/
+                   |      |
+                   |     / \\
+                   ___|___
+                """
+        };
+        System.out.println(hangmanStages[stage]);
+    }
 }
+

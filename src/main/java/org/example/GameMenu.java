@@ -61,10 +61,6 @@ public class GameMenu {
 
     public void startGameWithPlayers(int numbOfPlayers) {
         if (numbOfPlayers == 1) {
-//            player1 = new Player();
-//            System.out.println("Please enter your name");
-//            player1.setName(scanner.nextLine());}
-
             while (true) {
                 try {
                     System.out.println("what game would you like to play? \n1.Snap \n2.Hangman");
@@ -88,13 +84,6 @@ public class GameMenu {
 
 
         } else {
-//            player1 = new Player();
-//            player2 = new Player();
-//            System.out.println("Please enter the name of Player1");
-//            player1.setName(scanner.nextLine());
-//            System.out.println("Please enter the name of the second Player2");
-//            player2.setName(scanner.nextLine());
-
             while (true) {
                 try {
                     System.out.println("what game would you like to play? \n1.Snap \n2.Hangman");
