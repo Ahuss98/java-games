@@ -26,9 +26,6 @@ public class DisplayGuess {
     }
 
     public void displayWordLength() {
-        System.out.println(currentWord);
-
-
         for (int i = 0; i < currentWord.length(); i++) {
             String currentLetter = String.valueOf(currentWord.charAt(i));
 
