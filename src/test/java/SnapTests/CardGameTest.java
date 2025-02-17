@@ -1,6 +1,7 @@
 package SnapTests;
 
 import org.example.snap.CardGame;
+import org.example.snap.Suits;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ public class CardGameTest {
     @Test
     @DisplayName("returns a different card depending on how many time dealCard has been called")
     void dealCard_returnsCorrectCard() {
-        assertEquals("♥", cardGame.dealCard().getSuit());
+        assertEquals(Suits.HEARTS, cardGame.dealCard().getSuit());
         assertEquals(3, cardGame.dealCard().getValue());
         cardGame.dealCard();
         cardGame.dealCard();
@@ -69,17 +70,17 @@ public class CardGameTest {
         cardGame.sortDeckIntoSuits();
         cardGame.getDeck();
         assertEquals(2, cardGame.dealCard().getValue());
-        assertEquals("♠", cardGame.dealCard().getSuit());
+        assertEquals(Suits.HEARTS, cardGame.dealCard().getSuit());
         cardGame.dealCard();
         cardGame.dealCard();
         cardGame.dealCard();
         assertEquals(7, cardGame.dealCard().getValue());
-        assertEquals("♠", cardGame.dealCard().getSuit());
+        assertEquals(Suits.HEARTS, cardGame.dealCard().getSuit());
         cardGame.dealCard();
         cardGame.dealCard();
         cardGame.dealCard();
         assertEquals(12, cardGame.dealCard().getValue());
-        assertEquals("♠", cardGame.dealCard().getSuit());
+        assertEquals(Suits.HEARTS, cardGame.dealCard().getSuit());
     }
 
     @Test
