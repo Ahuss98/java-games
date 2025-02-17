@@ -1,4 +1,5 @@
 package org.example;
+
 import org.example.hangman.HangmanMenu;
 import org.example.snap.Player;
 import org.example.snap.Snap;
@@ -20,7 +21,7 @@ public class GameMenu {
         startGameWithPlayers(numbOfPlayers);
     }
 
-    public GameMenu(int numbOfPlayers){
+    public GameMenu(int numbOfPlayers) {
         startGameWithPlayers(numbOfPlayers);
     }
 
@@ -43,12 +44,12 @@ public class GameMenu {
         }
     }
 
-    public void setPlayerNames(int setNumbOfPlayers){
+    public void setPlayerNames(int setNumbOfPlayers) {
         if (numbOfPlayers == 1) {
             player1 = new Player();
             System.out.println("Please enter your name");
             player1.setName(scanner.nextLine());
-        }else {
+        } else {
             player1 = new Player();
             player2 = new Player();
             System.out.println("Please enter the name of Player1");
@@ -100,7 +101,7 @@ public class GameMenu {
                     int selected = scanner.nextInt();
                     scanner.nextLine();
                     if (selected == 1) {
-                        newGame = new Snap(player1,player2);
+                        newGame = new Snap(player1, player2);
                         break;
                     } else if (selected == 2) {
                         HangmanMenu newGame = new HangmanMenu();

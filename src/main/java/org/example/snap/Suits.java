@@ -4,7 +4,7 @@ public enum Suits {
     HEARTS("♥"), DIAMONDS("♦"), SPADES("♠"), CLUBS("♣");
     private final String symbol;
 
-     Suits(String symbol) {
+    Suits(String symbol) {
         this.symbol = symbol;
     }
 

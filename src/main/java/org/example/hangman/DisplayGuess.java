@@ -13,7 +13,7 @@ public class DisplayGuess {
         return currentWord;
     }
 
-    public DisplayGuess(String word){
+    public DisplayGuess(String word) {
         this.currentWord = word;
         this.correctLetterGuess = new ArrayList<>();
         this.allGuesses = new ArrayList<>();
@@ -21,11 +21,11 @@ public class DisplayGuess {
         arrayFiller();
     }
 
-    public void arrayFiller(){
+    public void arrayFiller() {
         Arrays.fill(wordArr, 0, currentWord.length(), "_ ");
     }
 
-    public void displayWordLength(){
+    public void displayWordLength() {
         System.out.println(currentWord);
 
 
@@ -41,15 +41,15 @@ public class DisplayGuess {
         System.out.println(Arrays.toString(wordArr));
     }
 
-    public void GetNewWord(){
+    public void GetNewWord() {
         currentWord = Words.selectRandomWord();
     }
 
-    public boolean guessLetterCheck(String guess){
-        if (guess == null || guess.length() != 1 ) {
+    public boolean guessLetterCheck(String guess) {
+        if (guess == null || guess.length() != 1) {
             throw new IllegalArgumentException("Invalid guess! Please enter a single letter.");
         }
-        if(currentWord.contains(guess) && !allGuesses.contains(guess)){
+        if (currentWord.contains(guess) && !allGuesses.contains(guess)) {
             correctLetterGuess.add(guess);
             return currentWord.contains(guess);
         } else if (!allGuesses.contains(guess)) {

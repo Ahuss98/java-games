@@ -6,48 +6,49 @@ public class HangmanMenu {
     String currentWord;
     public DisplayGuess newHangman;
     public String guess;
-    int incorrectGuesses ;
+    int incorrectGuesses;
     int correctGuesses;
     Scanner scanner = new Scanner(System.in);
 
-    public HangmanMenu(){
+    public HangmanMenu() {
         playGame();
     }
 
-    public void playGame(){
+    public void playGame() {
         currentWord = Words.selectRandomWord();
         newHangman = new DisplayGuess(currentWord);
-            System.out.println("🔥 Welcome to Hangman! Press type a letter to guess. Type 'exit' to quit.");
-        while(incorrectGuesses < 5 && correctGuesses < currentWord.length()){
+        System.out.println("🔥 Welcome to Hangman! Press type a letter to guess. Type 'exit' to quit.");
+        while (incorrectGuesses < 5 && correctGuesses < currentWord.length()) {
             newHangman.displayWordLength();
             System.out.println("guess a letter");
-            System.out.println("correct guesses: " +  correctGuesses + " out of: " + currentWord.length());
-            System.out.println("incorrect guesses: " + incorrectGuesses + " out of " + 5 );
+            System.out.println("correct guesses: " + correctGuesses + " out of: " + currentWord.length());
+            System.out.println("incorrect guesses: " + incorrectGuesses + " out of " + 5);
             String input = scanner.nextLine().trim().toLowerCase();
-            if(input.equals("exit")){
+            if (input.equals("exit")) {
                 System.out.println("Thanks for playing");
                 break;
             }
-            try{
-            if(newHangman.guessLetterCheck(input)){
-                System.out.println("correct!");
-                correctGuesses ++;
-            } else {
-                System.out.println("incorrect!");
-                incorrectGuesses++;
-            }
+            try {
+                if (newHangman.guessLetterCheck(input)) {
+                    System.out.println("correct!");
+                    correctGuesses++;
+                } else {
+                    System.out.println("incorrect!");
+                    incorrectGuesses++;
+                }
 
-            }catch(IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
         winLosschecker();
     }
-    public void winLosschecker(){
-        if(correctGuesses >= currentWord.length()){
+
+    public void winLosschecker() {
+        if (correctGuesses >= currentWord.length()) {
             System.out.println("congratulations you win!!");
         }
-        if(incorrectGuesses >= 5){
+        if (incorrectGuesses >= 5) {
             System.out.println("you lose!!");
         }
 

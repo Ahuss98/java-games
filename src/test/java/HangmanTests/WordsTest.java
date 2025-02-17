@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class WordsTest {
     @Test
     @DisplayName("testing if selectRandomWord return a valid word")
-        void selectRandomWord_retunsValidWord(){
-            String selectedWord = Words.selectRandomWord();
-            assertTrue(Words.words.contains(selectedWord));
+    void selectRandomWord_retunsValidWord() {
+        String selectedWord = Words.selectRandomWord();
+        assertTrue(Words.words.contains(selectedWord));
 
 
     }
