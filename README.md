@@ -56,7 +56,7 @@ This project helped me **improve my Java skills**, including:
 - [x] **Class Design:**
     - [x] `Words.java` → Stores a list of words & selects a random word.
     - [x] `DisplayGuess.java` → Manages letter guessing logic & word display.
-    - [x] `HangmanMenu.java` → Handles game flow, tracking wins/losses.
+    - [x] `HangmanMenu.java` → Handles game flow.
 - [x] **Game Logic:**
     - [x] `selectRandomWord()` → Picks a word from an array.
     - [x] `guessLetterCheck()` → Validates player input and updates game state.
@@ -131,7 +131,7 @@ Run Main.java in your Java IDE.
 🔥 Welcome to Hangman! Guess the word!
 
 _ _ _ _ _ _
-❌ Incorrect guesses: 2 / 6
+❌ Incorrect guesses: 2 / 5
 
   _______
   |/     |
