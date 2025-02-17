@@ -1,6 +1,4 @@
 package org.example;
-
-import org.example.hangman.DisplayGuess;
 import org.example.hangman.HangmanMenu;
 import org.example.snap.Player;
 import org.example.snap.Snap;
@@ -12,10 +10,17 @@ public class GameMenu {
     private int numbOfPlayers;
     Scanner scanner = new Scanner(System.in);
     Snap newGame;
+    Player player1;
+    Player player2;
 
 
     public GameMenu() {
         setNumbOfPlayers();
+        setPlayerNames(numbOfPlayers);
+        startGameWithPlayers(numbOfPlayers);
+    }
+
+    public GameMenu(int numbOfPlayers){
         startGameWithPlayers(numbOfPlayers);
     }
 
@@ -38,12 +43,26 @@ public class GameMenu {
         }
     }
 
+    public void setPlayerNames(int setNumbOfPlayers){
+        if (numbOfPlayers == 1) {
+            player1 = new Player();
+            System.out.println("Please enter your name");
+            player1.setName(scanner.nextLine());
+        }else {
+            player1 = new Player();
+            player2 = new Player();
+            System.out.println("Please enter the name of Player1");
+            player1.setName(scanner.nextLine());
+            System.out.println("Please enter the name of the second Player2");
+            player2.setName(scanner.nextLine());
+        }
+    }
+
     public void startGameWithPlayers(int numbOfPlayers) {
         if (numbOfPlayers == 1) {
-            Player player = new Player();
-            System.out.println("Please enter your name");
-            player.setName(scanner.nextLine());
-
+//            player1 = new Player();
+//            System.out.println("Please enter your name");
+//            player1.setName(scanner.nextLine());}
 
             while (true) {
                 try {
@@ -51,8 +70,7 @@ public class GameMenu {
                     int selected = scanner.nextInt();
                     scanner.nextLine();
                     if (selected == 1) {
-                        newGame = new Snap(player);
-//                        newGame.playSnap();
+                        newGame = new Snap(player1);
                         break;
                     } else if (selected == 2) {
                         HangmanMenu newGame = new HangmanMenu();
@@ -69,12 +87,12 @@ public class GameMenu {
 
 
         } else {
-            Player player1 = new Player();
-            Player player2 = new Player();
-            System.out.println("Please enter the name of Player1");
-            player1.setName(scanner.nextLine());
-            System.out.println("Please enter the name of the second Player2");
-            player2.setName(scanner.nextLine());
+//            player1 = new Player();
+//            player2 = new Player();
+//            System.out.println("Please enter the name of Player1");
+//            player1.setName(scanner.nextLine());
+//            System.out.println("Please enter the name of the second Player2");
+//            player2.setName(scanner.nextLine());
 
             while (true) {
                 try {
@@ -83,7 +101,6 @@ public class GameMenu {
                     scanner.nextLine();
                     if (selected == 1) {
                         newGame = new Snap(player1,player2);
-//                        newGame.playSnap(player1,player2);
                         break;
                     } else if (selected == 2) {
                         HangmanMenu newGame = new HangmanMenu();

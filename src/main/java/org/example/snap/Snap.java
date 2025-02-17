@@ -1,4 +1,6 @@
 package org.example.snap;
+import org.example.GameMenu;
+
 import java.util.Scanner;
 
 public class Snap extends CardGame{
@@ -95,12 +97,20 @@ public class Snap extends CardGame{
         }
     }
     public void playAgain(){
-        System.out.println("type 'play' to play again");
-        String input = scanner.nextLine();
-        if(input.equals("play")){
+        System.out.println("type \n 1.to play again \n 2.select a new game with same players\n 3.to select players and select game");
+        int input = scanner.nextInt();
+        if(input == 1){
             populateDeck();
             shuffleDeck();
             playSnap(player1,player2);
+        } else if (input == 2) {
+            if(player2 == null){
+            GameMenu newGameMenu = new GameMenu(1);
+            } else {
+            GameMenu newGameMenu = new GameMenu(2);
+            }
+        } else if (input == 3) {
+            GameMenu newGameMenu = new GameMenu();
         } else {
             System.out.println("Thanks for playing");
             isGameOver = true;
