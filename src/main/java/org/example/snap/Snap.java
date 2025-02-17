@@ -16,6 +16,7 @@ public class Snap extends CardGame{
         scanner = new Scanner(System.in);
         populateDeck();
         shuffleDeck();
+        playSnap(player1,player2);
     }
 
     public Snap(Player player1 , Player player2){
@@ -26,32 +27,13 @@ public class Snap extends CardGame{
         scanner = new Scanner(System.in);
         populateDeck();
         shuffleDeck();
+        playSnap(player1,player2);
     }
-    public void playSnap(Player player){
+    public void playSnap(Player player1,Player player2){
         System.out.println("🔥 Welcome to Snap! Press ENTER to draw a card. Type 'exit' to quit.");
-
-        while(!isGameOver){
-            System.out.println("press enter to draw a new card");
-            String input = scanner.nextLine();
-            if(input.equals("exit")){
-                System.out.println("Thanks for playing");
-                break;
-            }
-
-            Card newCard = dealCard();
-            System.out.println(newCard.toString());
-
-            noMoreCardsChecker(newCard);
-            winChecker(newCard, player);
-        }
-    }
-
-    public void playSnap(Player player1, Player player2){
         String currentPlayer = player1.getName();
         Card player1Card;
         Card player2Card;
-        System.out.println("🔥 Welcome to Snap! Press ENTER to draw a card. Type 'exit' to quit.");
-
         while(!isGameOver){
             System.out.println("press enter to draw a new card");
             String input = scanner.nextLine();
@@ -68,7 +50,9 @@ public class Snap extends CardGame{
                 noMoreCardsChecker(player1Card);
                 winChecker(player1Card, player1);
 
+                if(player2 != null){
                 currentPlayer = player2.getName();
+                }
             } else {
                 player2Card = dealCard();
                 System.out.println(player2.getName() + "'s card is " + player2Card.toString());
@@ -80,8 +64,8 @@ public class Snap extends CardGame{
             }
 
         }
-
     }
+
     public void winChecker(Card newCard,Player player){
         if(!isFirstCard){
             if(newCard != null && lastCard.getSymbol().equals(newCard.getSymbol())){
@@ -91,7 +75,7 @@ public class Snap extends CardGame{
                     String input = scanner.nextLine().trim();
                     if (input.equalsIgnoreCase("snap") && (System.currentTimeMillis() - startTime) < 2000) {
                         System.out.println("🎉 SNAP!!! " + player.getName() + " WINS!");
-                        playAgain(player1,player2);
+                        playAgain();
                         return;
                     } else if ((System.currentTimeMillis() - startTime) < 2000){
                         System.out.println("❌ Wrong input! Try again.");
@@ -116,18 +100,6 @@ public class Snap extends CardGame{
         }
     }
     public void playAgain(){
-        System.out.println("type 'play' to play again");
-        String input = scanner.nextLine();
-        if(input.equals("play")){
-            populateDeck();
-            shuffleDeck();
-            playSnap(player1);
-        } else {
-            System.out.println("Thanks for playing");
-            isGameOver = true;
-        }
-    }
-    public void playAgain(Player player1,Player player2){
         System.out.println("type 'play' to play again");
         String input = scanner.nextLine();
         if(input.equals("play")){

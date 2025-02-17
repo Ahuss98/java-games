@@ -1,7 +1,5 @@
 package org.example.snap;
 
-import java.util.Objects;
-
 public class Card {
     private Suits suit;
     private String symbol;

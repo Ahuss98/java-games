@@ -52,7 +52,7 @@ public class GameMenu {
                     scanner.nextLine();
                     if (selected == 1) {
                         newGame = new Snap(player);
-                        newGame.playSnap(player);
+//                        newGame.playSnap();
                         break;
                     } else if (selected == 2) {
                         HangmanMenu newGame = new HangmanMenu();
@@ -83,7 +83,7 @@ public class GameMenu {
                     scanner.nextLine();
                     if (selected == 1) {
                         newGame = new Snap(player1,player2);
-                        newGame.playSnap(player1,player2);
+//                        newGame.playSnap(player1,player2);
                         break;
                     } else if (selected == 2) {
                         HangmanMenu newGame = new HangmanMenu();

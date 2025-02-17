@@ -23,9 +23,10 @@ public class CardGame {
     }
 
     public void populateDeck(){
+        deckOfCards.clear();
         for(Suits suit: Suits.values()){
-            for(int j = 2; j <= 14 ; j++){
-                deckOfCards.add(new Card(suit, j));
+            for(int i = 2; i <= 14 ; i++){
+                deckOfCards.add(new Card(suit, i));
             }
         }
     }
