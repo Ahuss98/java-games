@@ -88,7 +88,6 @@ public class GameMenu {
                 try {
                     System.out.println("what game would you like to play? \n1.Snap \n2.Hangman");
                     int selected = scanner.nextInt();
-                    scanner.nextLine();
                     if (selected == 1) {
                         newGame = new Snap(player1, player2);
                         break;

@@ -35,10 +35,10 @@ public class HangmanMenu {
             }
             try {
                 if (newHangman.guessLetterCheck(input)) {
-                    System.out.println("correct!");
+                    System.out.println("✅correct!");
                     correctGuesses++;
                 } else {
-                    System.out.println("incorrect!");
+                    System.out.println("❌incorrect!");
                     incorrectGuesses++;
                 }
 
@@ -51,12 +51,12 @@ public class HangmanMenu {
 
     public void winLosschecker() {
         if (correctGuesses >= currentWord.length()) {
-            System.out.println("congratulations you win!!");
+            System.out.println("🎉congratulations you win!!");
             playAgain();
         }
         if (incorrectGuesses >= 5) {
             displayHangman(incorrectGuesses);
-            System.out.println("you lose!!");
+            System.out.println("😓you lose!!");
             playAgain();
         }
 
@@ -67,7 +67,6 @@ public class HangmanMenu {
             System.out.println("Type: \n 1.Play again \n 2.Select new players and a new game \n 3.Exit");
             try {
                 int input = scanner.nextInt();
-                scanner.nextLine();
                 if (input == 1) {
                     currentWord = Words.selectRandomWord();
                     playGame();
