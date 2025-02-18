@@ -100,20 +100,15 @@ This project helped me **improve my Java skills**, including:
 - for SSH
 ```sh
 git clone git@github.com:Ahuss98/java-games.git
-cd Java-Games 
+cd java-games 
 ``` 
 - OR for HTTPS
 ```sh
 git clone https://github.com/Ahuss98/java-games.git
-cd Java-Games 
+cd java-games 
 ``` 
 ### **3️⃣ Compile & Run**
-```sh
-javac Main.java
-java Main
-``` 
-OR
-Run Main.java in your Java IDE.
+Run `Main.java` in your Java IDE.
 
 ---
 ## 🎮 How to Play

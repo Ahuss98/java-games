@@ -31,7 +31,6 @@ public class Card {
 
     public void setSuitIfValid(Suits suit) {
         boolean isValid = false;
-
         for (Suits validSuit : Suits.values()) {
             if (suit.equals(validSuit)) {
                 this.suit = suit;
