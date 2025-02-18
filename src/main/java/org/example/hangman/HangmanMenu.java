@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class HangmanMenu {
     String currentWord;
     public DisplayGuess newHangman;
-    public String guess;
     int incorrectGuesses;
     int correctGuesses;
     Scanner scanner = new Scanner(System.in);
