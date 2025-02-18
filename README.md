@@ -77,8 +77,7 @@ This project helped me **improve my Java skills**, including:
     - [x] `Player.java` → Stores player names and tracks scores.
 - [x] **Game Logic:**
     - [x] `dealCard()` → Each player draws a card from the deck.
-    - [x] `winChecker()` → Checks if the last two cards match.
-    - [x] `startTimer()` → If a player doesn’t type `"SNAP!"` within **2 seconds**, they lose.
+    - [x] `winChecker()` → Checks if the last two cards match & if a player doesn’t type `"SNAP!"` within **2 seconds**, they lose.
     - [x] `playAgain()` → Allows replay or switching to another game.
 
 ---
