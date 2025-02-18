@@ -61,7 +61,7 @@ public class Snap extends CardGame {
     public void playerTurn(Player player) {
         Card card = dealCard();
         noMoreCardsChecker(card);
-        System.out.println(player.getName() + "'s card is " + card.toString());
+        if(card != null) System.out.println(player.getName() + "'s card is " + card.toString());
         winChecker(card, player);
     }
 
@@ -70,7 +70,7 @@ public class Snap extends CardGame {
             if (newCard != null && lastCard.getSymbol().equals(newCard.getSymbol())) {
                 long startTime = System.currentTimeMillis();
                 while ((System.currentTimeMillis() - startTime) < 2000) {
-                    System.out.println(player.getName() + " type 'snap' as fast as you can");
+                    System.out.println("⭐️" + player.getName() + " type 'snap' as fast as you can ⭐️");
                     String input = scanner.nextLine().trim();
                     if (input.equalsIgnoreCase("snap") && (System.currentTimeMillis() - startTime) < 2000) {
                         System.out.println("🎉 SNAP!!! " + player.getName() + " WINS!");
@@ -101,7 +101,7 @@ public class Snap extends CardGame {
 
     public void playAgain() {
         while (true) {
-            System.out.println("Type: \n 1.Play again \n 2.Select a new game with the same players \n 3.Select new players and a new game \n 4.Exit");
+            System.out.println("Type: \n 1.Play again \n 2.Select new players and a new game \n 3.Exit");
             try {
                 int input = scanner.nextInt();
                 scanner.nextLine();
@@ -111,16 +111,9 @@ public class Snap extends CardGame {
                     playSnap(player1, player2);
                     break;
                 } else if (input == 2) {
-                    if (player2 == null) {
-                        GameMenu newGameMenu = new GameMenu(1);
-                    } else {
-                        GameMenu newGameMenu = new GameMenu(2);
-                    }
-                    break;
-                } else if (input == 3) {
                     GameMenu newGameMenu = new GameMenu();
                     break;
-                } else if (input == 4) {
+                } else if (input == 3) {
                     System.out.println("Thanks for playing");
                     isGameOver = true;
                     break;
