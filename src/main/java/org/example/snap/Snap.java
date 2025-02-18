@@ -39,7 +39,7 @@ public class Snap extends CardGame {
         String currentPlayer = player1.getName();
         while (!isGameOver) {
             System.out.println("press enter to draw a new card");
-            String input = scanner.nextLine();
+            String input = scanner.nextLine().toLowerCase();
 
             if (input.equals("exit")) {
                 System.out.println("Thanks for playing");
@@ -71,7 +71,7 @@ public class Snap extends CardGame {
                 long startTime = System.currentTimeMillis();
                 while ((System.currentTimeMillis() - startTime) < 2000) {
                     System.out.println("⭐️" + player.getName() + " type 'snap' as fast as you can ⭐️");
-                    String input = scanner.nextLine().trim();
+                    String input = scanner.nextLine().trim().toLowerCase();
                     if (input.equalsIgnoreCase("snap") && (System.currentTimeMillis() - startTime) < 2000) {
                         System.out.println("🎉 SNAP!!! " + player.getName() + " WINS!");
                         playAgain();
