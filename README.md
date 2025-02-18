@@ -94,7 +94,7 @@ This project helped me **improve my Java skills**, including:
 
 ### **1️⃣ Prerequisites**
 - Install **Java JDK 8+**
-- Use an IDE (**IntelliJ**) or run via the terminal
+- Use an IDE (**IntelliJ**)
 
 ### **2️⃣ Clone the Repository**
 - for SSH
@@ -123,7 +123,7 @@ Run Main.java in your Java IDE.
 - **Guess a letter** by typing it in the console.
 - If correct → The letter is revealed.
 - If incorrect → The Hangman drawing updates.
-- **Win:** Guess all letters before **6 incorrect guesses**.
+- **Win:** Guess all letters before **5 incorrect guesses**.
 - **Lose:** The full Hangman is drawn.
 
 #### **Example:**
