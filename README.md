@@ -1,5 +1,4 @@
-# java-games
-# 🎮 Java Games: Hangman & Snap
+# 🕹️ Java Games: Hangman  & Snap
 
 Welcome to my **first Java project**, where I built **two classic games: Hangman & Snap**, along with a **functional user menu** that allows navigation between both games in **single-player and multiplayer modes**.
 
@@ -112,7 +111,7 @@ Run `Main.java` in your Java IDE.
 ---
 ## 🎮 How to Play
 
-### **1️⃣ Hangman**
+### 🧩 **Hangman** 🧩 
 - The game picks a **random word** and displays underscores (`_`).
 - **Guess a letter** by typing it in the console.
 - If correct → The letter is revealed.
@@ -135,7 +134,7 @@ _ _ _ _ _ _
   |
  ___|___
 ```
-### **2️⃣ Snap**
+### ♠️ ♦️ **Snap** ♣️ ♥️
 - Players take turns drawing cards.
 - If two consecutive cards match in rank, type "SNAP!" as fast as possible.
 - Win: First to get Snap on their turn and type it.
